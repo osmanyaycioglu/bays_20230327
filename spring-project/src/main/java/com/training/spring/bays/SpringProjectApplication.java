@@ -8,6 +8,10 @@ import org.springframework.context.ConfigurableApplicationContext;
 import com.training.spring.bays.java.Car;
 import com.training.spring.bays.java.CarCache;
 
+//@SpringBootApplication(scanBasePackages = {
+//                                            "com.training.spring.bays",
+//                                            "com.spring.bays"
+//})
 @SpringBootApplication
 public class SpringProjectApplication {
 

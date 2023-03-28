@@ -17,14 +17,16 @@ public class ApplicationRun implements ApplicationRunner {
     private SpringProjectApplication projectApplication;
     private Environment              environment;
     private final ApplicationContext applicationContext;
-    @Autowired
-    private IExecute                 totalExecutor;
+
+    private final IExecute           totalExecutor;
 
     // Constructor Injection
     @Autowired
-    public ApplicationRun(final ApplicationContext applicationContextParam) {
+    public ApplicationRun(final ApplicationContext applicationContextParam,
+                          final IExecute totalExecutorParam) {
         super();
         this.applicationContext = applicationContextParam;
+        this.totalExecutor = totalExecutorParam;
     }
 
     // Method Injection
