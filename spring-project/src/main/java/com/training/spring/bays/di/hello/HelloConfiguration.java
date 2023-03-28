@@ -1,5 +1,6 @@
 package com.training.spring.bays.di.hello;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -15,7 +16,14 @@ public class HelloConfiguration {
     //    private Environment environment;
 
     @Bean
-    public IGreetings createDynamicGreet(final Environment environment) {
+    public IGreetings createDynamicGreet(@Value("${greets.hello.prefix}") final String helloPrefix,
+                                         @Value("${greets.goodbye.prefix}") final String goodbyePrefix) {
+        return new ConfGreeting(helloPrefix,
+                                goodbyePrefix);
+    }
+
+    @Bean
+    public IGreetings createDynamicGreetOld(final Environment environment) {
         String helloPrefix = environment.getProperty("greets.hello.prefix");
         String goodbyePrefix = environment.getProperty("greets.goodbye.prefix");
         return new ConfGreeting(helloPrefix,

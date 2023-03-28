@@ -2,6 +2,7 @@ package com.training.spring.bays.rest;
 
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,9 +10,27 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.training.spring.bays.di.scope.MyBean;
+
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
+
+    @Autowired
+    private MyBean myBean1;
+
+    @Autowired
+    private MyBean myBean2;
+
+    @GetMapping("/show/counter1")
+    public String showCounter1() {
+        return "Counter 1 : " + this.myBean1.method();
+    }
+
+    @GetMapping("/show/counter2")
+    public String showCounter2() {
+        return "Counter 2 : " + this.myBean2.method();
+    }
 
     //hello/hello1 -> GET http komutuyla request
     // @RequestMapping(value = "/hello1", method = RequestMethod.GET)

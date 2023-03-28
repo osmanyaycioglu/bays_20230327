@@ -9,6 +9,9 @@ import org.springframework.stereotype.Component;
 
 import com.training.spring.bays.di.IExecute;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 @Component
 public class ApplicationRun implements ApplicationRunner {
 
@@ -33,6 +36,16 @@ public class ApplicationRun implements ApplicationRunner {
     @Autowired
     public void setEnv(final Environment environmentParam) {
         this.environment = environmentParam;
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("ApplicationRun Before ready state");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("ApplicationRun Before destroy");
     }
 
     @Override
