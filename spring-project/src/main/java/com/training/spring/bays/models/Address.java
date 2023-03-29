@@ -1,5 +1,7 @@
 package com.training.spring.bays.models;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -7,7 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Address {
 
+    @NotNull
+    @NotEmpty
     private String city;
+    @NotNull
+    @NotEmpty
     private String street;
 
 }

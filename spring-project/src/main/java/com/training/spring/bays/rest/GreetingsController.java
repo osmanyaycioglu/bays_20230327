@@ -17,7 +17,7 @@ public class GreetingsController {
     private final IGreetings greetings;
 
     @Autowired
-    public GreetingsController(@Qualifier("createDynamicGreet") final IGreetings greetingsParam) {
+    public GreetingsController(@Qualifier("greetingsBean") final IGreetings greetingsParam) {
         super();
         this.greetings = greetingsParam;
     }

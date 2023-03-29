@@ -57,9 +57,9 @@ app:
     name: my application
 greets:
   goodbye:
-    prefix: güle güle
+    prefix: Goodbye
   hello:
-    prefix: Selam
+    prefix: Hello
 management:
   endpoint:
     health:
@@ -71,3 +71,13 @@ management:
         include: '*'
 server:
   port: 9090
+  error:
+    include-exception: true
+    include-message: always
+    include-binding-errors: always
+spring:
+  profiles:
+    active:
+    - live
+    default: live
+    
