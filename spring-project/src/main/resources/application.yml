@@ -1,0 +1,73 @@
+app:
+  calc:
+    add:
+      value1: 12
+      value2: 13
+    subs:
+      value1: 12
+      value2: 13
+  prop:
+    employee-map:
+      kemalal:
+        address:
+          city: istanbul
+          street: besiktas
+        first-name: kemal
+        height: 190
+        last-name: alaz
+        weight: 80
+      osmanyay:
+        address:
+          city: istanbul
+          street: cekemkoy
+        first-name: osman
+        height: 200
+        last-name: yaycioglu
+        weight: 95
+    employee-template:
+      address:
+        city: istanbul
+        street: atasehir
+      first-name: employee
+      height: 200
+      last-name: surname
+      weight: 100
+    employees:
+    - address:
+        city: istanbul
+        street: kadikoy
+      first-name: osman
+      height: 199
+      last-name: alaz
+      weight: 90
+    - address:
+        city: ankara
+        street: mamak
+      first-name: ali
+      height: 180
+      last-name: veli
+      weight: 69
+    execute-timeout: 100
+    language: tr
+    language-prefix: Turkce
+    locations:
+    - istanbul
+    - ankara
+    - izmir
+    name: my application
+greets:
+  goodbye:
+    prefix: güle güle
+  hello:
+    prefix: Selam
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 9090
