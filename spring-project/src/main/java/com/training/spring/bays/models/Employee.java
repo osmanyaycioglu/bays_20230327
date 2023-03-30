@@ -22,15 +22,17 @@ public class Employee {
     @NotEmpty
     @Size(min = 2, max = 15)
     @NotContainsStr({
-                   "abc",
-                   "123",
-                   "qwe"
+                      "abc",
+                      "123",
+                      "qwe"
     })
+    //@Startwith("fn:")
     private String  firstName;
     @NotNull
     @NotBlank
     @NotEmpty
     @Size(min = 3, max = 20)
+    //@Startwith("ln:")
     private String  lastName;
     @NotNull
     @Max(400)
