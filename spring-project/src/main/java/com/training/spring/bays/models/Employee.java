@@ -1,5 +1,7 @@
 package com.training.spring.bays.models;
 
+import com.training.spring.bays.validation.NotContainsStr;
+
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -15,10 +17,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Employee {
 
-    @NotNull
-    @NotBlank
+    @NotNull(message = "firstName null olmamamlı")
+    @NotBlank(message = "sadece space ler den oluşmamalı")
     @NotEmpty
     @Size(min = 2, max = 15)
+    @NotContainsStr({
+                   "abc",
+                   "123",
+                   "qwe"
+    })
     private String  firstName;
     @NotNull
     @NotBlank
