@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.training.spring.bays.employee.rest.models.Employee;
 import com.training.spring.bays.error.ErrorObj;
-import com.training.spring.bays.models.Employee;
 
 @RestController
 @RequestMapping("/apiv2/v1/employee/provision")

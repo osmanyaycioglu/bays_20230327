@@ -1,4 +1,4 @@
-package com.training.spring.bays.models;
+package com.training.spring.bays.employee.rest.models;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

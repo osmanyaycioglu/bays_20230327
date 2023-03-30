@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import com.training.spring.bays.models.Employee;
+import com.training.spring.bays.employee.rest.models.Employee;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

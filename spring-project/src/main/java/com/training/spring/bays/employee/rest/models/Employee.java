@@ -1,4 +1,6 @@
-package com.training.spring.bays.models;
+package com.training.spring.bays.employee.rest.models;
+
+import java.util.List;
 
 import com.training.spring.bays.validation.NotContainsStr;
 
@@ -27,23 +29,27 @@ public class Employee {
                       "qwe"
     })
     //@Startwith("fn:")
-    private String  firstName;
+    private String      firstName;
     @NotNull
     @NotBlank
     @NotEmpty
     @Size(min = 3, max = 20)
     //@Startwith("ln:")
-    private String  lastName;
+    private String      lastName;
     @NotNull
     @Max(400)
     @Positive
-    private Integer weight;
+    private Integer     weight;
     @NotNull
     @Max(300)
     @Min(50)
-    private Integer height;
+    private Integer     height;
     @NotNull
     @Valid
-    private Address address;
+    private Address     address;
 
+    @NotNull
+    @Size(min = 1)
+    @Valid
+    private List<Phone> phones;
 }
