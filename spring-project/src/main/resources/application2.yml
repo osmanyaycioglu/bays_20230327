@@ -57,9 +57,9 @@ app:
     name: my application
 greets:
   goodbye:
-    prefix: Goodbye
+    prefix: selametle
   hello:
-    prefix: Hello
+    prefix: aleyküm selam
 management:
   endpoint:
     health:
@@ -71,20 +71,12 @@ management:
         include: '*'
 server:
   port: 9090
-  error:
-    include-exception: true
-    include-message: always
-    include-binding-errors: always
 spring:
-  profiles:
-    active:
-    - live
-    default: live
   datasource:
-    username: postgres
+    driver-class-name: oracle.jdbc.OracleDriver
     password: 123456
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/test
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/test}
+    username: postgres
   jpa:
     database: POSTGRESQL
     hibernate:
@@ -92,6 +84,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL94Dialect
-        show_sql: true
-        format_sql: true
-        
+        jdbc:
+          lob:
+            non_contextual_creation: true
