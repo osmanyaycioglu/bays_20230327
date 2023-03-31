@@ -7,9 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.training.spring.bays.employee.mongo.IEmployeeMongoDao;
 import com.training.spring.bays.employee.services.models.EStatus;
 import com.training.spring.bays.employee.services.models.EmployeeDTO;
 import com.training.spring.bays.employee.services.models.EmployeeDetails;
+import com.training.spring.bays.employee.services.models.EmployeeMongoDTO;
 import com.training.spring.bays.employee.services.models.PhoneDTO;
 
 @Service
@@ -17,6 +19,9 @@ public class EmployeeData {
 
     @Autowired
     private IEmployeeDao        employeeDao;
+
+    @Autowired
+    private IEmployeeMongoDao   employeeMongoDao;
 
     @Autowired
     private IEmployeeDetailsDao employeeDetailsDao;
@@ -30,6 +35,12 @@ public class EmployeeData {
             phoneDTOLoc.setEmployeeDTO(employeeDTOParam);
         }
         this.employeeDao.save(employeeDTOParam);
+        EmployeeMongoDTO mongoDTOLoc = new EmployeeMongoDTO();
+        mongoDTOLoc.setAddress(employeeDTOParam.getAddress());
+        mongoDTOLoc.setPhones(employeeDTOParam.getPhones());
+        mongoDTOLoc.setFirstName(employeeDTOParam.getFirstName());
+        mongoDTOLoc.setLastName(employeeDTOParam.getLastName());
+        this.employeeMongoDao.save(mongoDTOLoc);
         this.insertEmployeeDetails(employeeDTOParam);
     }
 

@@ -1,5 +1,9 @@
 package com.training.spring.bays.employee.services.models;
 
+import org.springframework.data.annotation.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -22,6 +26,8 @@ public class AddressDTO {
     private Long        addId;
     private String      city;
     private String      street;
+    @Transient
+    @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
     private EmployeeDTO employeeDTO;

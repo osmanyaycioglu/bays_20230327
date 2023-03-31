@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.training.spring.bays.java.Car;
 import com.training.spring.bays.java.CarCache;
@@ -13,6 +15,8 @@ import com.training.spring.bays.java.CarCache;
 //                                            "com.spring.bays"
 //})
 @SpringBootApplication
+@EnableMongoRepositories(basePackages = "com.training.spring.bays.employee.mongo")
+@EnableJpaRepositories(basePackages = "com.training.spring.bays.employee.data")
 public class SpringProjectApplication {
 
     private final CarCache carCache;

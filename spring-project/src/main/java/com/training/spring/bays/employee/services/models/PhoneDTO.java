@@ -1,5 +1,9 @@
 package com.training.spring.bays.employee.services.models;
 
+import org.springframework.data.annotation.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -21,6 +25,9 @@ public class PhoneDTO {
     private Long        phoneId;
     private String      phoneName;
     private String      phoneNumber;
+
+    @JsonIgnore
+    @Transient
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private EmployeeDTO employeeDTO;
 
