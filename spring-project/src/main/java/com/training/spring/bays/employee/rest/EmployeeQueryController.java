@@ -3,6 +3,7 @@ package com.training.spring.bays.employee.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,11 +25,13 @@ public class EmployeeQueryController {
         this.employeeQueryService = employeeQueryServiceParam;
     }
 
+    @PreAuthorize("hasRole('USER')")
     @GetMapping("/get/one")
     public Employee getOne(@RequestParam("eid") final Long employeeId) {
         return IEmployeeMapper.MAPPER.toEmployee(this.employeeQueryService.findEmployee(employeeId));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/get/all")
     public List<Employee> getAll() {
         return IEmployeeMapper.MAPPER.toEmployees(this.employeeQueryService.findAllEmployees());

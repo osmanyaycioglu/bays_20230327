@@ -82,7 +82,7 @@ spring:
     default: live
   datasource:
     username: postgres
-    password: 123456
+    password: ENC(cU+yC/GZAye2Fl7bdHsfenv8H9War5qZIqlJv1YoLIFQdhPO9l28hZf+BNIJ5RXb)
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/test
   jpa:
